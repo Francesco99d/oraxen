@@ -28,4 +28,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Oraxen-Jar
-        path: plugin/build/libs/*.jar # Prende i file compilati e te li mette a disposizione
+        # Questa riga ora cerca ricorsivamente in tutto il progetto i file .jar
+        path: "**/build/libs/*.jar" 
+        # Escludiamo i file inutili per non fare confusione
+        if-no-files-found: error
